@@ -12,46 +12,36 @@ import java.util.ArrayList;
 
 public class DataTransformation {
 
-    public void stringPresentation () {
+    public void stringPresentation () throws MalformedURLException {
         ArrayList<Book> bookArrayList = new ArrayList<Book>();
-        try {
-            bookArrayList = new Request().postRequestBook();
-        } catch (MalformedURLException ex) {
-            System.out.println("Error: "+ ex);
-        }
+        bookArrayList = new Request().postRequestBook();
         for (Book book: bookArrayList) {
             System.out.println(book.toString());
         }
+        ClientEntry.showMenu ( );
 
     }
 
-    public void jsonPresentation  () {
+    public void jsonPresentation  () throws MalformedURLException {
         ArrayList<Book> bookArrayList = new ArrayList<Book>();
         String jsonData = "";
         ObjectMapper mapper = new ObjectMapper();
-        try {
-            bookArrayList = new Request().postRequestBook();
-        } catch (MalformedURLException ex) {
-            System.out.println("Error: "+ ex);
-        }
+        bookArrayList = new Request().postRequestBook();
         try {
             jsonData = mapper.writeValueAsString(bookArrayList);
         } catch (JsonProcessingException e) {
             System.out.println("Error: "+ e);
         }
         System.out.println(jsonData);
+        ClientEntry.showMenu ( );
     }
 
-    public void xmlPresentation () {
+    public void xmlPresentation () throws MalformedURLException {
         ArrayList<Book> bookArrayList = new ArrayList<Book>();
         Books books = new Books();
         books.setBooks(new ArrayList<Book>());
 
-        try {
-            bookArrayList = new Request().postRequestBook();
-        } catch (MalformedURLException ex) {
-            System.out.println("Error: "+ ex);
-        }
+        bookArrayList = new Request().postRequestBook();
 
         for (Book aux: bookArrayList) {
             books.getBooks().add(aux);
@@ -67,6 +57,7 @@ public class DataTransformation {
         } catch (JAXBException e) {
             System.out.println("Error: "+ e);
         }
+        ClientEntry.showMenu ( );
 
     }
 

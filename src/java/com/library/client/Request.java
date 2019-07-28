@@ -63,13 +63,13 @@ public class Request {
         if (put){
             response = webResource.type ( "application/json" ).put ( ClientResponse.class, inputData );
             if (response.getStatus ( ) != 200) {
-                throw new RuntimeException ( "HTTP Error: " + response.getStatus ( ) );
+                System.out.println ( "HTTP Error: " + response.getStatus ( ) );
             }
         }
         else {
             response = webResource.type ( "application/json" ).post ( ClientResponse.class, inputData );
             if (response.getStatus ( ) != 200) {
-                throw new RuntimeException ( "HTTP Error: " + response.getStatus ( ) );
+                System.out.println ( "HTTP Error: " + response.getStatus ( ) );
             }
         }
         return mapperList(response);
@@ -93,8 +93,6 @@ public class Request {
             Book [] arrayBook = objectMapper.readValue (response.getEntity ( String.class ),Book[].class);
 
             for (Book jBook : arrayBook ) {
-                System.out.println ( "------------------------------------------------" );
-                System.out.println ("ID: " + jBook.getAuthor () + " / " + "Title: " + jBook.getTitle ());
                 Book b = new Book ();
                 b.setIsbn(jBook.getIsbn());
                 b.setTitle(jBook.getTitle());
@@ -107,9 +105,8 @@ public class Request {
                 bookArrayList.add(b);
             }
         } catch (IOException e) {
-            e.printStackTrace ( );
+            System.out.println("HTTP Error: "+ e);
         }
-        System.out.println ( "------------------------------------------------" );
         return bookArrayList;
     }
 

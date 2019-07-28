@@ -28,7 +28,7 @@ public class ClientEntry {
      * @throws MalformedURLException Manage URL error
      */
 
-    public static void showMenu() throws MalformedURLException {
+    public static void showMenu() {
         try {
             int exit = 0;
             do {
@@ -36,12 +36,10 @@ public class ClientEntry {
                 System.out.println ( "****** Welcome to Solo's Library ******" );
                 System.out.println ( "" );
                 System.out.println ( "Please, Select one Option - Int Required from 0 to 6" );
-                System.out.println ( "1. Help / About" );
-                System.out.println ( "2. List Books" );
-                System.out.println ( "3. Display Book" );
-                System.out.println ( "4. Add Book" );
-                System.out.println ( "5. Update Book" );
-                System.out.println ( "6. Delete Book" );
+                System.out.println ( "1. Look for Book information in String Format" );
+                System.out.println ( "2. Look for Book information in json Format" );
+                System.out.println ( "3. Look for Book information in XML Format" );
+                System.out.println ( "4. Help" );
                 System.out.println ( "0. Quit" );
                 System.out.println ( "" );
 
@@ -63,13 +61,7 @@ public class ClientEntry {
                         new DataTransformation().xmlPresentation();
                         break;
                     case 4:
-                        new DataTransformation().stringPresentation();
-                        break;
-                    case 5:
-                        new DataTransformation().stringPresentation();
-                        break;
-                    case 6:
-                        new DataTransformation().stringPresentation();
+                        new Request().help();
                         break;
 
                     default:
@@ -80,8 +72,8 @@ public class ClientEntry {
                 }
 
             } while (exit != 0);
-        } catch (InputMismatchException | NumberFormatException ex) {
-            System.out.println ( "Please, check the input, all (int) required values" );
+        } catch (InputMismatchException | NumberFormatException | MalformedURLException ex) {
+            System.out.println ( "Error: " + ex );
             showMenu ();
         }
     }
