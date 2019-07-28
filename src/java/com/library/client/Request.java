@@ -28,7 +28,7 @@ public class Request {
 
 
 
-    public void help() throws MalformedURLException {
+    public void help() {
         System.out.println ( "***** Welcome to Solo's Library System Version RestJson *****" );
         System.out.println (    "\n In this System you can search, add and delete books. " +
                 "\n Additionally, you can work remotely with Rest services, you " +
