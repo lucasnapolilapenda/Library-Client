@@ -7,12 +7,12 @@ import org.eclipse.persistence.jaxb.JAXBContext;
 
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
-import java.net.MalformedURLException;
 import java.util.ArrayList;
 
 public class DataTransformation {
 
-    public void stringPresentation () throws MalformedURLException {
+    public void stringPresentation () {
+        System.out.println ( "****** String Data Module ******" );
         ArrayList<Book> bookArrayList = new ArrayList<Book>();
         bookArrayList = new Request().postRequestBook();
         for (Book book: bookArrayList) {
@@ -22,7 +22,8 @@ public class DataTransformation {
 
     }
 
-    public void jsonPresentation  () throws MalformedURLException {
+    public void jsonPresentation  ()  {
+        System.out.println ( "****** Json Data Module ******" );
         ArrayList<Book> bookArrayList = new ArrayList<Book>();
         String jsonData = "";
         ObjectMapper mapper = new ObjectMapper();
@@ -36,7 +37,8 @@ public class DataTransformation {
         ClientEntry.showMenu ( );
     }
 
-    public void xmlPresentation () throws MalformedURLException {
+    public void xmlPresentation ()  {
+        System.out.println ( "****** XML Data Module ******" );
         ArrayList<Book> bookArrayList = new ArrayList<Book>();
         Books books = new Books();
         books.setBooks(new ArrayList<Book>());

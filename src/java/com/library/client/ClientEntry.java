@@ -35,7 +35,7 @@ public class ClientEntry {
                 System.out.println ( "" );
                 System.out.println ( "****** Welcome to Solo's Library ******" );
                 System.out.println ( "" );
-                System.out.println ( "Please, Select one Option - Int Required from 0 to 6" );
+                System.out.println ( "Please, Select one Option - Int Required from 0 to 4" );
                 System.out.println ( "1. Look for Book information in String Format" );
                 System.out.println ( "2. Look for Book information in json Format" );
                 System.out.println ( "3. Look for Book information in XML Format" );
@@ -68,6 +68,7 @@ public class ClientEntry {
                         System.out.println ( );
                         System.out.println ( "Please, Select one Option" );
                         System.out.println ( );
+                        showMenu();
                         break;
                 }
 
