@@ -16,10 +16,7 @@ import java.util.Scanner;
  */
 public class ClientEntry {
     public static void main(String[] argv) {
-        new PasswordInput().credentialsInput();
-        showMenu ();
-
-
+        new PasswordInput().validationRequest();
     }
 
     /**Display the menu. This starts when the app load

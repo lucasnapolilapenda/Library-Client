@@ -110,8 +110,9 @@ public class Request {
                 b.setPublisher(jBook.getPublisher());
                 bookArrayList.add(b);
             }
-        } catch (IOException e) {
-            System.out.println("HTTP Error: "+ e);
+        } catch (IOException | UniformInterfaceException e) {
+            System.out.println("Perhaps you should reenter your credentials " + "HTTP Error: "+ e);
+            new PasswordInput().credentialsInput();
         }
         return bookArrayList;
     }
