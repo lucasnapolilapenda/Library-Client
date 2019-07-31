@@ -4,9 +4,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.sun.jersey.api.client.*;
+import sun.misc.BASE64Encoder;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -16,16 +16,15 @@ public class Request {
     Client client = Client.create();
     String urlClient = "http://localhost:8080/library/search/search";
 
-
     public ArrayList<Book> postRequestBook() {
+
         System.out.println ( ":::::: Module Search Engine Book ::::::" );
         String url = urlClient;
         WebResource webResource = client.resource ( url );
         Book book = new Request().preparationBook ();
-        return mapperBook ( webResource, book, false );
+        return mapperBook ( webResource, book, false);
 
     }
-
 
 
     public void help() {
@@ -54,6 +53,10 @@ public class Request {
         ObjectMapper mapper = new ObjectMapper();
         String inputData = null;
         ClientResponse response = null;
+        String authString = PasswordInput.user+":"+PasswordInput.password;
+        String authStringEnc = new BASE64Encoder().encode(authString.getBytes());
+
+
 
         try {
             inputData = mapper.writeValueAsString(book);
@@ -67,7 +70,10 @@ public class Request {
             }
         }
         else {
-            response = webResource.type ( "application/json" ).post ( ClientResponse.class, inputData );
+            response = webResource.type ( "application/json" )
+                    .header("Authorization", "Basic " + authStringEnc)
+                    .post ( ClientResponse.class, inputData );
+
             if (response.getStatus ( ) != 200) {
                 System.out.println ( "HTTP Error: " + response.getStatus ( ) );
             }

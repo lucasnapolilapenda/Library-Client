@@ -8,8 +8,11 @@ import org.eclipse.persistence.jaxb.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class DataTransformation {
+
+
 
     public void stringPresentation () {
         System.out.println ( "****** String Data Module ******" );
@@ -60,8 +63,8 @@ public class DataTransformation {
             System.out.println("Error: "+ e);
         }
         ClientEntry.showMenu ( );
-
     }
+
 
 
 }

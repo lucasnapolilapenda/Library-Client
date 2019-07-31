@@ -15,8 +15,8 @@ import java.util.Scanner;
 /**Starting Point
  */
 public class ClientEntry {
-    public static void main(String[] argv) throws MalformedURLException {
-
+    public static void main(String[] argv) {
+        new PasswordInput().credentialsInput();
         showMenu ();
 
 
@@ -32,9 +32,6 @@ public class ClientEntry {
         try {
             int exit = 0;
             do {
-                System.out.println ( "" );
-                System.out.println ( "****** Welcome to Solo's Library ******" );
-                System.out.println ( "" );
                 System.out.println ( "Please, Select one Option - Int Required from 0 to 4" );
                 System.out.println ( "1. Look for Book information in String Format" );
                 System.out.println ( "2. Look for Book information in json Format" );
@@ -73,7 +70,7 @@ public class ClientEntry {
                 }
 
             } while (exit != 0);
-        } catch (InputMismatchException | NumberFormatException | MalformedURLException ex) {
+        } catch (InputMismatchException | NumberFormatException ex) {
             System.out.println ( "Error: " + ex );
             showMenu ();
         }
