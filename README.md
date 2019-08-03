@@ -9,10 +9,19 @@ Project created in Maven, all the dependencies are in a .pom document.
 Compile the code but first cheque the Server Url in the following class:
 
 ```
-public class ClientRequest {
+public class Request {
+
 
     Client client = Client.create();
-    String urlClient = "project Library service path";
+    String urlClient = "http://localhost:8080/library/search/search";
+    
+    AND
+    
+        public void validationRequest() {
+            credentialsInput();
+            Client client = Client.create();
+            String urlClient = "http://localhost:8080/library/search/auth";
+
 
 
 ```
