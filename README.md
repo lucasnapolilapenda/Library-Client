@@ -1,4 +1,4 @@
-# ClientLibrary
+# LibraryClient
 
 Client Library is a part of the project Library Micro Services. This module is a client java console app to request information from a web services in microservices environment
 
