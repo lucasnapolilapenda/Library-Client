@@ -1,5 +1,12 @@
 package com.library.client;
 
+/**
+ *
+ * @author Lucas Napoli
+ * V1.0
+ * Library Microservices
+ */
+
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -10,11 +17,21 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Manage request to the server
+ */
+
 public class Request {
 
 
     Client client = Client.create();
     String urlClient = "http://localhost:8080/library/search/search";
+
+    /**
+     * request and return Array to be formatted
+     * @return ArrayList</Book> with the info to be formatted
+     */
+
 
     public ArrayList<Book> postRequestBook() {
 
@@ -26,12 +43,16 @@ public class Request {
 
     }
 
+    /**
+     * Display help to the user
+     */
+
 
     public void help() {
-        System.out.println ( "***** Welcome to Solo's Library System Version RestJson *****" );
-        System.out.println (    "\n In this System you can search, add and delete books. " +
-                "\n Additionally, you can work remotely with Rest services, you " +
-                "\n Perhaps you are wondering why we change the technology every 2 weeks...:) " +
+        System.out.println ( "***** Welcome to Solo's Library System Latest Version  *****" );
+        System.out.println (    "\n In this System you can search, books with microservices. " +
+                "\n Additionally, you can work remotely with SOAP and REST, you " +
+                "\n It has been a hard work, but we are sure, you will enjoy it " +
                 "\n Thanks for using Lucas Software and enjoy it" );
 
         System.out.println ( "Please, type any KEY to come back to the Menu" );
@@ -136,10 +157,5 @@ public class Request {
         book.setPublisher ( sc.nextLine () );
         return book;
     }
-
-    /**
-     * Manage Message
-     * @param response response to create Message (log)
-     */
 
 }

@@ -1,5 +1,12 @@
 package com.library.client;
 
+/**
+ *
+ * @author Lucas Napoli
+ * V1.0
+ * Library Microservices
+ */
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
@@ -10,10 +17,22 @@ import sun.misc.BASE64Encoder;
 import java.io.IOException;
 import java.util.Scanner;
 
+
+/**
+ *
+ * Class to manage the password input
+ */
+
 public class PasswordInput {
 
     static String user;
     static String password;
+
+    /**
+     *
+     * Method to contruct credential string
+     * @return String Password String
+     */
 
     public String credentialsInput () {
         Scanner sc = new Scanner ( System.in );
@@ -28,7 +47,11 @@ public class PasswordInput {
         return  user+":"+password;
     }
 
-
+    /**
+     *
+     * Method to validate password in the server
+     *
+     */
 
     public void validationRequest() {
         credentialsInput();

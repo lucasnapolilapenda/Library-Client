@@ -1,11 +1,22 @@
 package com.library.client;
 
+/**
+ *
+ * @author Lucas Napoli
+ * V1.0
+ * Library Microservices
+ */
+
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+
+/**
+ * Represents all Books Array
+ */
 
 @XmlRootElement(name = "books")
 @XmlAccessorType (XmlAccessType.FIELD)

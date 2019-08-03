@@ -1,5 +1,12 @@
 package com.library.client;
 
+/**
+ *
+ * @author Lucas Napoli
+ * V1.0
+ * Library Microservices
+ */
+
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -9,9 +16,19 @@ import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import java.util.ArrayList;
 
+/**
+ *
+ * Class to manage all the formats required: String, Json, XML
+ */
+
+
 
 public class DataTransformation {
 
+
+    /**
+     * print data as String
+     */
 
 
     public void stringPresentation () {
@@ -24,6 +41,10 @@ public class DataTransformation {
         ClientEntry.showMenu ( );
 
     }
+
+    /**
+     * print data as Jason (really a String in Json format)
+     */
 
     public void jsonPresentation  ()  {
         System.out.println ( "****** Json Data Module ******" );
@@ -39,6 +60,10 @@ public class DataTransformation {
         System.out.println(jsonData);
         ClientEntry.showMenu ( );
     }
+
+    /**
+     * print data as XML (really a String in xml format)
+     */
 
     public void xmlPresentation ()  {
         System.out.println ( "****** XML Data Module ******" );

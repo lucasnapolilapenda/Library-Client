@@ -1,14 +1,21 @@
 package com.library.client;
 
+/**
+ *
+ * @author Lucas Napoli
+ * V1.0
+ * Library Microservices
+ */
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlRootElement;
 
+
 /**
- *
- * @author Lucas Napoli
- *
+ * Represents all the books
  */
+
 @XmlRootElement(name = "book")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Book implements Cloneable {
@@ -96,21 +103,43 @@ public class Book implements Cloneable {
         this.publisher = publisher;
     }
 
+    /**
+     * @return  summary publisher to set
+     */
+
     public String getSummary() {
         return summary;
     }
+
+    /**
+     * @param summary the publisher to set
+     * @return summary string
+     */
 
     public void setSummary(String summary) {
         this.summary = summary;
     }
 
+    /**
+     * @return  summary publisherdate
+     */
+
     public String getPublishingdate() {
         return publishingdate;
     }
 
+    /**
+     * @param publishingdate the publisher to set
+     * @return publishing string
+     */
+
     public void setPublishingDate(String publishingdate) {
         this.publishingdate = publishingdate;
     }
+
+    /**
+     * @return b as Book
+     */
 
     public Book clone() {
         Book b = new Book();
@@ -124,6 +153,10 @@ public class Book implements Cloneable {
         return b;
     }
 
+
+    /**
+     * @return Book as String
+     */
     @Override
     public String toString() {
         return "Book{" +
