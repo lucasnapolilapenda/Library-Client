@@ -29,7 +29,7 @@ public class Request {
 
     /**
      * request and return Array to be formatted
-     * @return ArrayList</Book> with the info to be formatted
+     * @return ArrayList with the info to be formatted
      */
 
 
@@ -67,6 +67,7 @@ public class Request {
      * @param book Object
      * @param put if a put or post
      * @throws RuntimeException heritage Malformed
+     * @return ArrayBook
      */
 
     public ArrayList<Book> mapperBook(WebResource webResource, Book book, Boolean put) {
@@ -106,6 +107,7 @@ public class Request {
      * To map Book List
      * @param response to create String
      * @throws RuntimeException heritage Malformed
+     * @return ArrayList
      */
 
     public ArrayList<Book> mapperList(ClientResponse response) {

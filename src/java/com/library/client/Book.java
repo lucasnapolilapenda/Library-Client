@@ -113,7 +113,6 @@ public class Book implements Cloneable {
 
     /**
      * @param summary the publisher to set
-     * @return summary string
      */
 
     public void setSummary(String summary) {
@@ -130,7 +129,6 @@ public class Book implements Cloneable {
 
     /**
      * @param publishingdate the publisher to set
-     * @return publishing string
      */
 
     public void setPublishingDate(String publishingdate) {
