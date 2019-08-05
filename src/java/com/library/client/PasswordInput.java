@@ -64,28 +64,39 @@ public class PasswordInput {
         String authString = user + ":" + password;
         String authStringEnc = new BASE64Encoder().encode(authString.getBytes());
 
-        response = webResource.type("application/json").header("Authorization", "Basic " + authStringEnc)
-                .post(ClientResponse.class);
+        try {
 
-        if (response.getStatus() != 200) {
-            System.out.println("HTTP Error: " + response.getStatus());
+            response = webResource.type("application/json").header("Authorization", "Basic " + authStringEnc)
+                    .post(ClientResponse.class);
+
+            if (response.getStatus() != 200) {
+                System.out.println("HTTP Error: " + response.getStatus());
+            }
+        }catch (Exception ex) {
+            System.out.println("error:" + ex);
         }
+
         Messages servAns = new Messages();
         ObjectMapper mapper = new ObjectMapper();
         try {
 
             servAns= mapper.readValue (response.getEntity ( String.class ),Messages.class);
-        } catch (IOException e) {
-            System.out.println("Error: " + e);
+        } catch (IOException | NullPointerException e) {
+            System.out.println("Error: " + e + "Check server is online, contact the administrator");
         }
 
-        String message = servAns.getAlert();
-        String status = servAns.getStatus();
-        if (status.equals("OK")) {
-            System.out.println(message);
-            ClientEntry.showMenu();
-        } else {
-            System.out.println(message);
+        try {
+            String message = servAns.getAlert();
+            String status = servAns.getStatus();
+            if (status.equals("OK")) {
+                System.out.println(message);
+                ClientEntry.showMenu();
+            } else {
+                System.out.println(message);
+                validationRequest();
+            }
+        }catch (NullPointerException ex) {
+            System.out.println("error:" + ex + "Check server is online, contact the administrator");
             validationRequest();
         }
     }
