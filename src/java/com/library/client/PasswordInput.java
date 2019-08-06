@@ -82,7 +82,7 @@ public class PasswordInput {
 
             servAns= mapper.readValue (response.getEntity ( String.class ),Messages.class);
         } catch (IOException | NullPointerException e) {
-            System.out.println("Error: " + e + "Check server is online, contact the administrator");
+            System.out.println("Error: " + e + " Check server is online, contact the administrator");
         }
 
         try {
@@ -96,7 +96,7 @@ public class PasswordInput {
                 validationRequest();
             }
         }catch (NullPointerException ex) {
-            System.out.println("error:" + ex + "Check server is online, contact the administrator");
+            System.out.println("error:" + ex + " Check server is online, contact the administrator");
             validationRequest();
         }
     }

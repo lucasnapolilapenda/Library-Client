@@ -134,7 +134,8 @@ public class Request {
                 bookArrayList.add(b);
             }
         } catch (IOException | UniformInterfaceException e) {
-            System.out.println("Perhaps you should reenter your credentials " + "HTTP Error: "+ e);
+            System.out.println("Perhaps you should reenter your credentials or some service down, contact your administrator");
+            System.out.println("HTTP Error: "+ e);
             new PasswordInput().credentialsInput();
         }
         return bookArrayList;
